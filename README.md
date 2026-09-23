@@ -1,16 +1,35 @@
-# React + Vite
+# QuizCraft
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A small React quiz app built with Vite and Bootstrap. Shows one question
+at a time, tracks answers, and scores the quiz on submission.
 
-Currently, two official plugins are available:
+## What's on this branch
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+This branch (`tunjis-own`) is a cleaned-up version of the original project:
 
-## React Compiler
+- Removed unused files (`index.css`, unused images) that weren't
+  actually being used anywhere
+- Fixed a button in the score summary that didn't do anything when clicked
+- Fixed a loose equality check (`==`) in the scoring logic, changed to `===`
+- Fixed a broken CSS class name in the header
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Running it locally
 
-## Expanding the ESLint configuration
+```bash
+npm install
+npm run dev
+```
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+Then open the local URL it prints (usually `http://localhost:5173`).
+
+## Project structure
+
+- `src/data/questions.js` — the question bank
+- `src/components/QuizCraft.jsx` — displays one question, handles
+  selecting an answer and moving between questions
+- `src/components/ScoreSummary.jsx` — calculates and displays the final
+  score after submission
+- `src/App.jsx` — owns all the state (current question, answers, whether
+  the quiz has been submitted) and wires the components together
+
+  <img width="466" height="434" alt="image" src="https://github.com/user-attachments/assets/77f2ee56-a0c4-43c4-98d4-e95585e470e3" />
